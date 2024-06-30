@@ -4,6 +4,7 @@ using EmployeeWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using EmployeeWebAPI.Models.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace EmployeeWebAPI.Controllers
@@ -20,7 +21,7 @@ namespace EmployeeWebAPI.Controllers
         }
 
         //********************* Get All Employees *********************
-        [HttpGet]
+        [HttpGet, Authorize]
         public IActionResult GetAllEmployees()
         {
             var allEmployees = dbContext.Employees
